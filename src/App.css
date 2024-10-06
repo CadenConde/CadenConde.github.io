@@ -1,38 +1,417 @@
+:root {
+  --primary: rgb(240, 60, 60);
+  --text: #efefef;
+  --bg1: #282828;
+  --bg2: #222222;
+  --accent: #414141;
+  /* --bg1: #f5f5f5;
+  --bg2: #c8c8c8;
+  --accent: #4b4b4b;
+  --text: #0d0d0d; */
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: var(--primary) var(--bg1); */
+  scroll-behavior: smooth;
+}
+.anchor{
+  position: absolute;
+  transform: translateY(-30vh);
+}
+
+
+.Euler-Link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+.Section-Name{
+  letter-spacing: 3px;
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 72px;
+  /* font-weight: 75; */
+  color: var(--primary);
+  text-shadow: 0px 0px 5px var(--primary);
+}
+
+.Header-Container{
+  width: 90%;
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; 
+}
+.Intro{
+  float: left;
+  /* background-color: #262626; */
+  border-radius: 5px;
+  width: min(500px, 100vw);
+  color: var(--text);  
+  text-align: center;
+  /* margin-top: 10vh; */
+  margin-bottom: 50px;
+}
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
+.line{
+  font-size: 26px;
+  font-weight: 80;
+  max-width: 90vw;
+}
+.first-line{
+  font-size: 40px;
+}
+
+.header-icons{
+  text-align: center;
+  padding: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.header-icons .ico{
+  padding: 15px;
+  color:var(--text);
+  text-shadow: none;
+  transition: .2s;
+  cursor: pointer;
+}
+.header-icons::after{
+  height: 100px;
+  width: 100px;
+  background-color: black;
+}
+
+.header-icons .ico:hover{
+  color: var(--primary);
+}
+
+.name-emphasis{
+  text-wrap: wrap;
+  font-size: 84px;
+  font-weight: 75;
+  color: var(--primary);
+  text-shadow: 0px 0px 10px var(--primary);
+}
+
 .App {
   text-align: center;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.About-Section, .Other-Section{
+  /* min-height: 115vh; */
+  padding-top: 10vh;
+  padding-bottom: 15vh;
+}
+.Other-Section{
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.About-Section{ 
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+}
+
+.About-Container{
+  padding: 20px;
+  padding-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 650px;
+  text-align: left;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 75;
+}
+.emphasis{
+  color: var(--primary);
+  font-weight: bold;
+  text-shadow: 0px 0px 1px var(--primary);
+}
+
+
+.Projects-Section, .Contact-Section{
+  min-height: 60vh;
+}
+
+.Proj-Container{
+  border: 1%;
+  width: min(1600px, 98%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+
+}
+.Proj-Card{
+  position: relative;
+  height: 450px;
+  border-radius: 4px;
+  background: linear-gradient(135deg,#282828, #151515);
+  width: 25%;
+  margin: 10px;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px #494949 solid;
+  box-shadow: #000000 0px 0px 0px;
+  transition: .5s;
+}
+.Proj-Thumbnail{
+  object-fit: cover;
+  border-radius: 4px;
+  width: 100%;
+  height: 40%;
+  filter:grayscale(.7);
+  transition: .5s;
+}
+.Proj-Card:hover{
+  scale: 1.02;
+  border: 1px #282828 solid;
+  box-shadow: var(--primary) 0px 0px 9px;
+}
+.Proj-Card:hover .Proj-Thumbnail{
+  filter: grayscale(0);
+}
+.Project-Card-Title{
+  padding-top: 10px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 75;
+  color: var(--primary);
+  text-shadow: 0px 0px 5px var(--primary);
+}
+.Project-Card-Content{
+  text-align: left;
+  font-size: 18px;
+  font-weight: 75;
+  color: var(--text);
+}
+.Proj-Link{
+  all: none;  
+  text-decoration: none;
+  font-weight: 75;
+}
+.Proj-Link-Box{
+  vertical-align: center;
+  padding: 5px;
+  width: 150px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 24px;
+  color: var(--text);
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  box-shadow: 0px 0px 5px var(--primary);
+  transition: .3s;
+}
+.Proj-Link-Box:hover{
+  background-color: var(--primary);
+}
+
+.Disabled{
+  border: 2px solid #555555;
+  box-shadow: 0px 0px 5px #555555;
+
+  background-color: transparent;;
+  color: #555555
+}
+.Disabled:hover{
+  background-color: transparent;
+}
+
+.Proj-Card-Footer{
+  position: absolute;
+  bottom: 1%;
+  left: 5px;
+  width: 93%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  align-items: flex-end center;  
+}
+@media (max-width: 1250px){
+  .Proj-Card{
+    width: 40%;
   }
 }
+@media (max-width: 750px){
+  .Proj-Card{
+    width: 80%;
+  }
+}
+@media (max-width: 400px){
+  .Proj-Card{
+    width: 90%;
+  }
+  .Proj-Link-Box{
+    padding: 0px;
+    width: 125px;
+  }
+}
+
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 65vh;
+  padding-top: 100px;
+}
+@media (max-width: 600px) {
+  .App-header{
+    padding-top: 50px;
+  }
+}
+
+/*pfp animation*/
+.pfp-container {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+}
+.pfp-img {
+  position: absolute;
+  width: 320px;
+  top: 5%;
+  left: 50%;
+  margin-top:  15vh;
+  translate: -50% -50%;
+  clip-path: circle();
+  z-index: 100;
+}
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 360deg;
+  inherits: false;
+}
+.pfp-container::after, .pfp-container::before {
+  top: 5%;
+  left: 50%;
+  filter: blur(1px);
+  margin-top: 15vh;
+  translate: -50% -50%;
+  border-radius: 100%;
+  height: 330px;
+  width: 330px;
+  content: '';
+  z-index: 0;
+  position: absolute;
+  background: conic-gradient(from var(--angle), transparent 1%,  var(--primary) 2%, transparent 51%, var(--primary) 52%, transparent 100%);
+  animation: 3s border-animation linear infinite;
+}
+.pfp-container::before{
+  filter: blur(10px);
+  z-index: 100;
+}
+@keyframes border-animation {
+  0% {
+    --angle: 360deg;
+  }
+  100% {
+    --angle: 0deg;
+  }
+}
+
+
+.nav-bar{
+  z-index: 1000;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(0,0,0,.3);
+  backdrop-filter: blur(10px);
+}
+.nav-container{
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between; 
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Nav-Links{
+  color: var(--text);
+  font-size: 20px;
+  padding: 10px;
+}
+.Nav-Links a{
+  all: unset;
+  cursor: pointer;
+  padding: 10px;
+  transition: .5s;
+}
+.Nav-Links a:hover{
+  color: var(--primary);
+  text-shadow: 0px 0px 3px var(--primary);
+}
+.Nav-Links-Collapse{
+  display: none;
+  color: var(--text);
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Nav-Links-Burger{
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 0px;
+  width: 100px;
+  text-wrap: wrap;
+  color: var(--text);
+  text-align: left;
+  background-color: rgba(0,0,0,.5);
+  z-index: 100;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.Nav-Links-Burger a{
+  all: unset;
+}
+.Nav-Links-Burger a:hover{
+  color: var(--primary);
+  text-shadow: 0px 0px 3px var(--primary);
+}
+.expanded{
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: 600px){
+  .Nav-Links{
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .Nav-Links-Collapse{
+    display: block;
   }
+}
+
+.Corner-Title{
+  margin-top: 2px;
+  letter-spacing: 2px;
+  padding: 5px;
+  padding-left: 20px;
+  font-size: 28px;
+  color:var(--primary);
+  text-shadow: 0px 0px 3px var(--primary);
+}
+.Corner-Title a{
+  all:unset;
+  cursor: pointer;
+}
+
+.Scroll-Indicator{
+  left:0;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary);
+  box-shadow: 0px 0px 5px var(--primary);
+  position: absolute;
+  bottom: 0;
 }
