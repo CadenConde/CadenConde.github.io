@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0250af35.css",
+    "main.js": "/static/js/main.9627170a.js",
+    "static/js/488.ec42b530.chunk.js": "/static/js/488.ec42b530.chunk.js",
+    "static/media/ProfilePic.webp": "/static/media/ProfilePic.c410c314109aca9672e5.webp",
+    "static/media/EulerLaser.webp": "/static/media/EulerLaser.27bc6b55201873a17bdb.webp",
+    "static/media/PythonCode.webp": "/static/media/PythonCode.b3555225e1c88fc6e9a0.webp",
+    "static/media/MinigolfSite.webp": "/static/media/MinigolfSite.27555961f28b966c71c2.webp",
+    "static/media/website.webp": "/static/media/website.992aa0e4300a445a18b2.webp",
+    "static/media/ChromeExt.webp": "/static/media/ChromeExt.5e7e00fd45cedbe06f13.webp",
+    "static/media/FOMO.webp": "/static/media/FOMO.32c228174358639e4ea2.webp",
+    "index.html": "/index.html",
+    "main.0250af35.css.map": "/static/css/main.0250af35.css.map",
+    "main.9627170a.js.map": "/static/js/main.9627170a.js.map",
+    "488.ec42b530.chunk.js.map": "/static/js/488.ec42b530.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0250af35.css",
+    "static/js/main.9627170a.js"
+  ]
+}
