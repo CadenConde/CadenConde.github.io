@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2ea54459.css",
-    "main.js": "/static/js/main.8e99709b.js",
+    "main.css": "/static/css/main.1e413710.css",
+    "main.js": "/static/js/main.80012879.js",
     "static/js/488.ec42b530.chunk.js": "/static/js/488.ec42b530.chunk.js",
     "static/media/ProfilePic.webp": "/static/media/ProfilePic.c410c314109aca9672e5.webp",
     "static/media/EulerLaser.webp": "/static/media/EulerLaser.27bc6b55201873a17bdb.webp",
@@ -13,12 +13,12 @@
     "static/media/EulerLaser2.webp": "/static/media/EulerLaser2.2dd2cbd3955636bd0804.webp",
     "static/media/FOMO.webp": "/static/media/FOMO.32c228174358639e4ea2.webp",
     "index.html": "/index.html",
-    "main.2ea54459.css.map": "/static/css/main.2ea54459.css.map",
-    "main.8e99709b.js.map": "/static/js/main.8e99709b.js.map",
+    "main.1e413710.css.map": "/static/css/main.1e413710.css.map",
+    "main.80012879.js.map": "/static/js/main.80012879.js.map",
     "488.ec42b530.chunk.js.map": "/static/js/488.ec42b530.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ea54459.css",
-    "static/js/main.8e99709b.js"
+    "static/css/main.1e413710.css",
+    "static/js/main.80012879.js"
   ]
 }
