@@ -1,0 +1,214 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-rule: var(--rule);
+  --color-grid: var(--grid);
+
+  --font-serif: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --radius: 0.375rem;
+
+  /* Light — warm paper */
+  --background: oklch(0.985 0.005 90);
+  --foreground: oklch(0.18 0.02 280);
+  --card: oklch(0.995 0.003 90);
+  --card-foreground: oklch(0.18 0.02 280);
+  --popover: oklch(0.995 0.003 90);
+  --popover-foreground: oklch(0.18 0.02 280);
+
+  /* Desaturated purple accent */
+  --primary: oklch(0.48 0.09 295);
+  --primary-foreground: oklch(0.98 0.005 90);
+
+  --secondary: oklch(0.94 0.01 280);
+  --secondary-foreground: oklch(0.22 0.02 280);
+  --muted: oklch(0.95 0.008 280);
+  --muted-foreground: oklch(0.45 0.02 280);
+  --accent: oklch(0.92 0.025 295);
+  --accent-foreground: oklch(0.28 0.05 295);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.88 0.012 280);
+  --input: oklch(0.88 0.012 280);
+  --ring: oklch(0.48 0.09 295);
+  --rule: oklch(0.18 0.02 280 / 0.15);
+  --grid: oklch(0.18 0.02 280 / 0.06);
+}
+
+.dark {
+  --background: oklch(0.155 0.015 280);
+  --foreground: oklch(0.94 0.01 90);
+  --card: oklch(0.19 0.018 280);
+  --card-foreground: oklch(0.94 0.01 90);
+  --popover: oklch(0.19 0.018 280);
+  --popover-foreground: oklch(0.94 0.01 90);
+
+  --primary: oklch(0.72 0.09 295);
+  --primary-foreground: oklch(0.15 0.02 280);
+
+  --secondary: oklch(0.24 0.02 280);
+  --secondary-foreground: oklch(0.94 0.01 90);
+  --muted: oklch(0.22 0.018 280);
+  --muted-foreground: oklch(0.68 0.02 280);
+  --accent: oklch(0.28 0.04 295);
+  --accent-foreground: oklch(0.9 0.04 295);
+  --destructive: oklch(0.68 0.19 22);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.12);
+  --ring: oklch(0.72 0.09 295);
+  --rule: oklch(1 0 0 / 0.14);
+  --grid: oklch(1 0 0 / 0.05);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 35%, transparent);
+    color: var(--foreground);
+  }
+}
+
+/* ───── Utilities ───── */
+@utility font-serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "ss01";
+  letter-spacing: -0.015em;
+}
+@utility font-mono {
+  font-family: var(--font-mono);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility rule-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rule), transparent);
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility blueprint-bg {
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+/* ───── Animations ───── */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -16px); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -240; }
+}
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(2400%); }
+}
+
+@utility anim-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+@utility anim-pulse-soft {
+  animation: pulse-soft 6s ease-in-out infinite;
+}
+@utility anim-dash {
+  stroke-dasharray: 6 8;
+  animation: dash 20s linear infinite;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
