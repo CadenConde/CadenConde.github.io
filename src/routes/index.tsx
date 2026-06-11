@@ -23,13 +23,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  
   useEffect(() => {
     // Ping your Cloudflare Worker for analytics (we'll set this up later)
     fetch('https://portfolio-analytics.cadenconde.workers.dev/ping', { method: 'POST' })
       .catch(() => {}); // Silent fail — no impact on user experience
   }, []);
-
   useReveal();
   return (
     <main className="relative min-h-screen bg-background text-foreground">

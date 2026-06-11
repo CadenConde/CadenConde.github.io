@@ -1,14 +1,63 @@
-import { ArrowDown, ArrowUpRight, Download, Mail } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { ArrowDown, ArrowUpRight, Download, Mail, Github, Linkedin } from "lucide-react";
 import portrait from "@/assets/image1.jpg";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const glowRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const glow = glowRef.current;
+    if (!section || !glow) return;
+
+    let raf = 0;
+    let tx = 0;
+    let ty = 0;
+    const onMove = (e: PointerEvent) => {
+      const rect = section.getBoundingClientRect();
+      tx = e.clientX - rect.left;
+      ty = e.clientY - rect.top;
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          glow.style.transform = `translate(${tx - 300}px, ${ty - 300}px)`;
+          glow.style.opacity = "1";
+          raf = 0;
+        });
+      }
+    };
+    const onLeave = () => {
+      glow.style.opacity = "0";
+    };
+    section.addEventListener("pointermove", onMove);
+    section.addEventListener("pointerleave", onLeave);
+    return () => {
+      section.removeEventListener("pointermove", onMove);
+      section.removeEventListener("pointerleave", onLeave);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative isolate flex min-h-screen items-center overflow-hidden pt-24"
     >
+      {/* Mouse-following purple glow */}
+      <div
+        ref={glowRef}
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-0 -z-10 h-[600px] w-[600px] rounded-full opacity-0 transition-opacity duration-500 will-change-transform"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in oklch, var(--primary) 35%, transparent) 0%, color-mix(in oklch, var(--primary) 12%, transparent) 35%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+
       {/* Animated blueprint background */}
-      <div aria-hidden className="absolute inset-0 -z-10">
+      <div aria-hidden className="absolute inset-0 -z-20">
         <div className="absolute inset-0 grid-bg opacity-60" />
         <div className="absolute -left-32 top-1/4 h-[28rem] w-[28rem] rounded-full bg-primary/20 blur-3xl anim-drift anim-pulse-soft" />
         <div
@@ -19,6 +68,7 @@ export function Hero() {
           className="absolute inset-0 h-full w-full text-primary/40"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
+          preserveAspectRatio="none"
         >
           <defs>
             <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
@@ -38,6 +88,27 @@ export function Hero() {
             strokeWidth="1"
             className="anim-dash"
             style={{ animationDelay: "-4s" }}
+          />
+          <path
+            d="M 0 380 Q 250 340 500 420 T 1000 380 T 1800 400"
+            stroke="currentColor"
+            strokeWidth="1"
+            className="anim-dash"
+            style={{ animationDelay: "-7s" }}
+          />
+          <path
+            d="M 0 540 Q 350 600 700 520 T 1400 560 T 2000 520"
+            stroke="currentColor"
+            strokeWidth="1"
+            className="anim-dash"
+            style={{ animationDelay: "-12s" }}
+          />
+          <path
+            d="M 0 700 Q 200 660 400 740 T 800 720 T 1600 760"
+            stroke="currentColor"
+            strokeWidth="1"
+            className="anim-dash"
+            style={{ animationDelay: "-2s" }}
           />
         </svg>
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
@@ -87,12 +158,27 @@ export function Hero() {
             >
               <Mail className="h-4 w-4" /> Contact Me
             </a>
-            <a
-              href="/resume.pdf"
-              className="group inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Download className="h-4 w-4" /> Résumé
-            </a>
+
+            <div className="ml-1 flex items-center gap-1">
+              <a
+                href="https://github.com/CadenConde"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border text-muted-foreground transition-all hover:border-primary hover:text-primary hover:-translate-y-0.5"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+              <a
+                href="https://linkedin.com/in/caden-conde"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border text-muted-foreground transition-all hover:border-primary hover:text-primary hover:-translate-y-0.5"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
 

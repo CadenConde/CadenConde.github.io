@@ -1,5 +1,20 @@
 import { SectionHeader } from "./SectionHeader";
 import { ArrowUpRight } from "lucide-react";
+import dormieImg from "@/assets/project-dormie.jpg";
+import marketImg from "@/assets/project-market.jpg";
+import translatorImg from "@/assets/project-translator.jpg";
+import rbtreeImg from "@/assets/project-rbtree.jpg";
+import eulerImg from "@/assets/project-euler.jpg";
+
+const accents = [
+  "oklch(0.65 0.13 295)",  // light purple (site primary)
+  "oklch(0.72 0.10 230)",  // light blue
+  "oklch(0.42 0.10 260)",  // navy
+  "oklch(0.52 0.16 305)",  // purple
+  "oklch(0.62 0.11 150)",  // green
+  "oklch(0.62 0.17 30)",   // orangeish red
+  "oklch(0.68 0.12 90)",   // dark yellow
+];
 
 type Project = {
   num: string;
@@ -7,7 +22,8 @@ type Project = {
   stack: string[];
   blurb: string;
   outcomes: string[];
-  accent: string;
+  image: string;
+  href: string;
 };
 
 const projects: Project[] = [
@@ -21,7 +37,8 @@ const projects: Project[] = [
       "Won 'Most Social Impact' — HackOHI/O 13 (100+ teams)",
       "100+ user surveys to refine the concept",
     ],
-    accent: "from-violet-500/30 to-indigo-500/10",
+    image: dormieImg,
+    href: "https://cadenconde.github.io/#project1",
   },
   {
     num: "02",
@@ -30,7 +47,8 @@ const projects: Project[] = [
     blurb:
       "VR language-learning app teaching conversational Mandarin Chinese through immersive market scenes; built with an interdisciplinary team.",
     outcomes: ["1st Place — OSU World Language Appathon"],
-    accent: "from-rose-500/25 to-amber-500/10",
+    image: marketImg,
+    href: "https://cadenconde.github.io/#project2",
   },
   {
     num: "03",
@@ -39,7 +57,8 @@ const projects: Project[] = [
     blurb:
       "Real-time sign-language translation device: interprets ASL gestures and outputs spoken or written translations across languages.",
     outcomes: ["2nd Place — MakeOHI/O", "Hardware + software integration"],
-    accent: "from-emerald-500/25 to-cyan-500/10",
+    image: translatorImg,
+    href: "https://cadenconde.github.io/#project3",
   },
   {
     num: "04",
@@ -48,7 +67,8 @@ const projects: Project[] = [
     blurb:
       "Complete Red-Black Tree with insertion, deletion, and search; comprehensive test coverage and performance analysis.",
     outcomes: ["Full O(log n) guarantees", "Documented benchmarks"],
-    accent: "from-sky-500/25 to-blue-500/10",
+    image: rbtreeImg,
+    href: "https://cadenconde.github.io/#project4",
   },
   {
     num: "05",
@@ -57,7 +77,8 @@ const projects: Project[] = [
     blurb:
       "100+ computational problems solved with mathematics, algorithms, and optimization. Ongoing since August 2023.",
     outcomes: ["100+ problems solved", "Active since 2023"],
-    accent: "from-fuchsia-500/25 to-violet-500/10",
+    image: eulerImg,
+    href: "https://cadenconde.github.io/#project5",
   },
 ];
 
@@ -74,46 +95,73 @@ export function Projects() {
         <div className="space-y-24">
           {projects.map((p, i) => {
             const reverse = i % 2 === 1;
+            const accent = accents[i % accents.length];
             return (
               <article
                 key={p.title}
                 className="reveal grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16"
               >
-                {/* Visual */}
-                <div
-                  className={`relative aspect-[4/3] overflow-hidden border border-border bg-card ${
+                {/* Visual — full image, darkened, with title overlay; hover reveals image */}
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${p.title}`}
+                  className={`group/img relative block aspect-[4/3] overflow-hidden border border-border bg-card ${
                     reverse ? "lg:order-2" : ""
                   }`}
                 >
-                  <div className="absolute inset-0 blueprint-bg opacity-70" />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${p.accent}`} />
-                  <div className="absolute inset-0 flex flex-col justify-between p-6">
-                    <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="absolute inset-0 h-full w-full object-cover grayscale-[35%] brightness-[0.45] transition-all duration-700 ease-out group-hover/img:grayscale-0 group-hover/img:brightness-100 group-hover/img:scale-[1.02]"
+                  />
+
+                  {/* Darkening gradient — fades on hover */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-background/30 opacity-100 transition-opacity duration-500 group-hover/img:opacity-0"
+                  />
+
+                  {/* Text overlay — fades out on hover */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-6 transition-opacity duration-500 group-hover/img:opacity-0">
+                    <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                       <span>project / {p.num}</span>
                       <span>case-study</span>
                     </div>
-                    <div className="font-serif text-[clamp(3rem,8vw,5.5rem)] leading-none tracking-tight text-foreground/90">
-                      {p.title.split(" ")[0]}
-                      <span className="text-primary">.</span>
+                    <div className="font-serif text-[clamp(1.75rem,4.2vw,3rem)] leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+                      {p.title}
+                      <span style={{ color: accent }}>.</span>
                     </div>
                   </div>
+
                   {/* corner ticks */}
                   <div className="pointer-events-none absolute inset-0">
-                    <span className="absolute left-3 top-3 h-2 w-2 border-l border-t border-primary" />
-                    <span className="absolute right-3 top-3 h-2 w-2 border-r border-t border-primary" />
-                    <span className="absolute bottom-3 left-3 h-2 w-2 border-b border-l border-primary" />
-                    <span className="absolute bottom-3 right-3 h-2 w-2 border-b border-r border-primary" />
+                    <span className="absolute left-3 top-3 h-2 w-2 border-l border-t" style={{ borderColor: accent }} />
+                    <span className="absolute right-3 top-3 h-2 w-2 border-r border-t" style={{ borderColor: accent }} />
+                    <span className="absolute bottom-3 left-3 h-2 w-2 border-b border-l" style={{ borderColor: accent }} />
+                    <span className="absolute bottom-3 right-3 h-2 w-2 border-b border-r" style={{ borderColor: accent }} />
                   </div>
-                </div>
+                </a>
 
                 {/* Body */}
                 <div>
-                  <div className="font-mono text-xs text-primary">
+                  <div className="font-mono text-xs" style={{ color: accent }}>
                     {p.num} / 05
                   </div>
-                  <h3 className="mt-2 font-serif text-3xl leading-tight tracking-tight sm:text-4xl">
-                    {p.title}
-                  </h3>
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group/title mt-2 inline-block"
+                  >
+                    <h3 className="font-serif text-3xl leading-tight tracking-tight transition-colors sm:text-4xl">
+                      {p.title}
+                    </h3>
+                  </a>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                     {p.blurb}
                   </p>
@@ -121,7 +169,7 @@ export function Projects() {
                   <ul className="mt-5 space-y-1.5 text-sm text-foreground/80">
                     {p.outcomes.map((o) => (
                       <li key={o} className="flex items-start gap-2">
-                        <span className="mt-2 h-px w-3 shrink-0 bg-primary" />
+                        <span className="mt-2 h-px w-3 shrink-0" style={{ backgroundColor: accent }} />
                         {o}
                       </li>
                     ))}
@@ -139,10 +187,13 @@ export function Projects() {
                   </div>
 
                   <a
-                    href="#contact"
-                    className="group mt-8 inline-flex items-center gap-2 border-b border-transparent pb-0.5 font-mono text-xs uppercase tracking-[0.18em] text-primary transition-all hover:border-primary"
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group mt-8 inline-flex items-center gap-2 border-b border-transparent pb-0.5 font-mono text-xs uppercase tracking-[0.18em] transition-all hover:border-primary"
+                    style={{ color: accent }}
                   >
-                    Ask about this project
+                    View Project
                     <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 </div>

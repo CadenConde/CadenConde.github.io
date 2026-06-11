@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FileText } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
@@ -45,7 +46,17 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <ThemeToggle />
+        <div className="flex items-center gap-2">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-1.5 rounded-sm border border-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-primary sm:inline-flex"
+          >
+            <FileText className="h-3 w-3" /> Résumé
+          </a>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

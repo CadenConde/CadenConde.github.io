@@ -1,5 +1,15 @@
 import { SectionHeader } from "./SectionHeader";
 
+const accents = [
+  "oklch(0.65 0.13 295)",  // light purple (site primary)
+  "oklch(0.72 0.10 230)",  // light blue
+  "oklch(0.42 0.10 260)",  // navy
+  "oklch(0.52 0.16 305)",  // purple
+  "oklch(0.62 0.11 150)",  // green
+  "oklch(0.62 0.17 30)",   // orangeish red
+  "oklch(0.68 0.12 90)",   // dark yellow
+];
+
 type Item = {
   role: string;
   org: string;
@@ -88,53 +98,63 @@ export function Experience() {
           title="A record of building and leading."
         />
 
-        <ol className="relative">
-          {/* timeline rail */}
+        <ol className="relative space-y-8 md:grid md:grid-cols-2 md:gap-x-0 md:space-y-0">
+          {/* center rail */}
           <div
             aria-hidden
             className="absolute left-[7px] top-2 h-[calc(100%-1rem)] w-px bg-rule md:left-1/2"
           />
 
-          {items.map((it, i) => (
-            <li
-              key={it.role + it.org}
-              className={`reveal relative mb-14 grid grid-cols-[24px_1fr] gap-x-6 md:grid-cols-2 md:gap-x-12 ${
-                i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
-              }`}
-            >
-              {/* node */}
-              <div className="absolute left-0 top-1 h-4 w-4 -translate-x-[3px] border border-primary bg-background md:left-1/2 md:-translate-x-1/2">
-                <div className="absolute inset-1 bg-primary" />
-              </div>
-
-              <div
-                className={`col-start-2 md:col-start-auto ${
-                  i % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
+          {items.map((it, i) => {
+            const right = i % 2 === 1;
+            const accent = accents[i % accents.length];
+            return (
+              <li
+                key={it.role + it.org}
+                className={`reveal relative grid grid-cols-[24px_1fr] gap-x-6 md:block md:pb-16 ${
+                  right ? "md:pl-12" : "md:pr-12"
                 }`}
+                style={{
+                  gridRow: `${i + 1} / span 2`,
+                  gridColumn: right ? 2 : 1,
+                }}
               >
-                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
-                  {it.dates}
+                {/* node — centered on the rail */}
+                <div
+                  aria-hidden
+                  className={`absolute top-1 z-10 h-4 w-4 -translate-x-[3px] border bg-background ${
+                    right
+                      ? "left-0 md:left-0 md:-translate-x-1/2"
+                      : "left-0 md:left-auto md:right-0 md:translate-x-1/2"
+                  }`}
+                  style={{ borderColor: accent }}
+                >
+                  <div className="absolute inset-1" style={{ backgroundColor: accent }} />
                 </div>
-                <h3 className="mt-2 font-serif text-2xl leading-tight">{it.role}</h3>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  {it.org} · {it.location}
-                </div>
-              </div>
 
-              <div className={`col-start-2 mt-4 md:col-start-auto md:mt-0 ${
-                i % 2 === 0 ? "md:pl-12" : "md:pr-12 md:text-right"
-              }`}>
-                <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
-                  {it.bullets.map((b) => (
-                    <li key={b} className={`flex gap-2 ${i % 2 === 0 ? "" : "md:flex-row-reverse"}`}>
-                      <span className="mt-2 h-px w-3 shrink-0 bg-primary/60" />
-                      <span className="flex-1">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
+                <div className="col-start-2 md:col-start-auto">
+                  <div className="font-mono text-[11px] uppercase tracking-[0.18em]" style={{ color: accent }}>
+                    {it.dates}
+                  </div>
+                  <h3 className="mt-2 font-serif text-2xl leading-tight">
+                    {it.role}
+                  </h3>
+                  <div className="mt-1 text-sm text-muted-foreground">
+                    {it.org} · {it.location}
+                  </div>
+
+                  <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                    {it.bullets.map((b) => (
+                      <li key={b} className="flex gap-2">
+                        <span className="mt-2 h-px w-3 shrink-0" style={{ backgroundColor: accent, opacity: 0.6 }} />
+                        <span className="flex-1">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>
