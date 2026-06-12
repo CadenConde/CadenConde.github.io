@@ -140,7 +140,7 @@ export function Hero() {
             Computer Science student at{" "}
             <span className="text-foreground">The Ohio State University</span>{" "}
             specializing in AI, with a minor in Philosophy. I build things that
-            matter — from hackathon-winning apps to startups — with deep
+            matter, from hackathon-winning apps to startups, with deep
             interest in technical systems and the human side of technology.
           </p>
 

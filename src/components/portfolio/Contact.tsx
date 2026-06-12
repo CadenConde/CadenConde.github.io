@@ -24,7 +24,7 @@ const links = [
     icon: FileText,
     label: "Resume",
     value: "/resume.pdf",
-    href: "https://docs.google.com/document/d/1YU3iysqTgPJ3qgT3NMbzWNonieac5JJuT4Zuy6LA7GE/edit?usp=sharing",
+    href: "https://drive.google.com/file/d/1cdUity-lfmWAaux9KeDk0n3TwIXlLFJM/view?usp=sharing",
   },
 ];
 

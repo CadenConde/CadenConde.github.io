@@ -20,14 +20,14 @@ type Item = {
 
 const items: Item[] = [
   {
-    role: "IT Intern",
+    role: "IT Systems Administrator",
     org: "Life Connection of Ohio",
     location: "Dayton, OH",
-    dates: "May 2025 — Present",
+    dates: "May 2026 — Present",
     bullets: [
-      "Built and deployed an internal ticketing system, improving IT request efficiency.",
-      "Administers Microsoft 365 (Entra ID, Exchange Online, MFA) and manages device lifecycle.",
-      "Analyzes department data and documents processes to improve workflows.",
+      "Developed and deployed an internal ticketing system, streamlining IT request intake and improving response efficiency.",
+      "Administered Microsoft 365 services (Entra ID, Exchange Online, MFA), supported daily IT operations, and performed device lifecycle management including imaging, wiping, and inventory auditing across the organization.",
+      "Provided critical IT support for 130+ employees in a healthcare environment, resolving 40+ monthly tickets and ensuring rapid response times and uninterrupted technology services for clinical, operational, and executive teams.",
     ],
   },
   {
@@ -70,7 +70,7 @@ const items: Item[] = [
     bullets: [
       "Legislative Coordinator for Sustainability Committee; Steering Committee member.",
       "Represented 15,000+ students in university governance and policy development.",
-      "Oversaw and approved a $75K+ annual budget.",
+      "Oversaw and approved a $200K+ annual budget.",
     ],
   },
   {

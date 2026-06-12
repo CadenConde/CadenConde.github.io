@@ -29,11 +29,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-
-
 const WORKER_URL = 'https://portfolio-analytics.cadenconde.workers.dev/ping';
 
-function sendPing(event) {
+function sendPing(event:any) {
   fetch(WORKER_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

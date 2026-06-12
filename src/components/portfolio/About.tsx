@@ -36,7 +36,7 @@ export function About() {
               I'm a <span className="text-foreground">junior at The Ohio State University</span>{" "}
               studying Computer Science with an{" "}
               <span className="text-foreground">AI specialization</span> and a minor
-              in Philosophy — an Entrepreneurship &amp; Innovation Scholar working at
+              in Philosophy; an Entrepreneurship &amp; Innovation Scholar working at
               the intersection of systems thinking and human-centered design.
             </p>
             <p>
@@ -48,7 +48,7 @@ export function About() {
               competitions, and CTFs.
             </p>
             <p>
-              I care about software that respects the people using it — and about
+              I care about software that respects the people using it and about
               the ideas behind it as much as the code.
             </p>
 

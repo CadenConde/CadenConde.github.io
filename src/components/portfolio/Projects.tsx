@@ -58,7 +58,7 @@ const projects: Project[] = [
       "Real-time sign-language translation device: interprets ASL gestures and outputs spoken or written translations across languages.",
     outcomes: ["2nd Place — MakeOHI/O", "Hardware + software integration"],
     image: translatorImg,
-    href: "https://www.linkedin.com/posts/caden-conde_makeathon-makeohio25-ohiostateuniversity-activity-7312245346938605568-9yE-?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEKprycBNS-dq4IcVXJF_-eVW4eSD683upI",
+    href: "https://github.com/sonicunleshed/UniversalTranslator",
   },
   {
     num: "04",
