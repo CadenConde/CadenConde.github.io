@@ -6,7 +6,7 @@ import { Experience } from "@/components/portfolio/Experience";
 import { Projects } from "@/components/portfolio/Projects";
 import { Contact } from "@/components/portfolio/Contact";
 import { useReveal } from "@/components/portfolio/useReveal";
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import favicon from "@/assets/favicon.ico";
 
 export const Route = createFileRoute("/")({
@@ -29,12 +29,45 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+
+
+const WORKER_URL = 'https://portfolio-analytics.cadenconde.workers.dev/ping';
+
+function sendPing(event) {
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      event,
+      referrer: document.referrer || 'Direct visit',
+    }),
+  }).catch(() => {});
+}
+
 function Index() {
+  
+  const projectsRef = useRef(null);
+
   useEffect(() => {
-    // Ping your Cloudflare Worker for analytics (we'll set this up later)
-    fetch('https://portfolio-analytics.cadenconde.workers.dev/ping', { method: 'POST' })
-      .catch(() => {}); // Silent fail — no impact on user experience
-  }, []);
+  if (!sessionStorage.getItem('pinged')) {
+    sessionStorage.setItem('pinged', 'true');
+    sendPing('page_view');
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        sendPing('viewed_projects');
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1 }
+  );
+
+  if (projectsRef.current) observer.observe(projectsRef.current);
+  return () => observer.disconnect();
+}, []);
+
   
   useReveal();
   return (
@@ -43,7 +76,9 @@ function Index() {
       <Hero />
       <About />
       <Experience />
-      <Projects />
+      <div ref={projectsRef}>
+        <Projects />
+      </div>
       <Contact />
     </main>
   );
