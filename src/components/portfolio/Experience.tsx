@@ -77,7 +77,7 @@ const items: Item[] = [
     role: "Pickup Associate",
     org: "Kroger",
     location: "Centerville, OH",
-    dates: "Apr 2023 — Jul 2025",
+    dates: "Apr 2023 — Jul 2026",
     bullets: [
       "Provided customer service; collected and loaded orders efficiently.",
       "Collaborated with team members and resolved customer issues.",
