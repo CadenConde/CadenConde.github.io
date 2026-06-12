@@ -22,9 +22,9 @@ const links = [
   },
   {
     icon: FileText,
-    label: "Résumé",
+    label: "Resume",
     value: "/resume.pdf",
-    href: "/resume.pdf",
+    href: "https://docs.google.com/document/d/1YU3iysqTgPJ3qgT3NMbzWNonieac5JJuT4Zuy6LA7GE/edit?usp=sharing",
   },
 ];
 

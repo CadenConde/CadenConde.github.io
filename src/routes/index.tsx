@@ -7,15 +7,22 @@ import { Projects } from "@/components/portfolio/Projects";
 import { Contact } from "@/components/portfolio/Contact";
 import { useReveal } from "@/components/portfolio/useReveal";
 import { useEffect } from 'react';
+import favicon from "@/assets/favicon.ico";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Caden Conde — Computer Science & AI" },
+      { title: "Caden Conde | Portfolio " },
       {
         name: "description",
         content:
           "Portfolio of Caden Conde — CS & AI student at The Ohio State University. Builder, problem-solver, hackathon winner.",
+      },
+    ],
+    links: [
+      {
+        rel: "icon",
+        href: favicon,
       },
     ],
   }),
@@ -28,6 +35,7 @@ function Index() {
     fetch('https://portfolio-analytics.cadenconde.workers.dev/ping', { method: 'POST' })
       .catch(() => {}); // Silent fail — no impact on user experience
   }, []);
+  
   useReveal();
   return (
     <main className="relative min-h-screen bg-background text-foreground">

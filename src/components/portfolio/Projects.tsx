@@ -1,19 +1,19 @@
 import { SectionHeader } from "./SectionHeader";
 import { ArrowUpRight } from "lucide-react";
-import dormieImg from "@/assets/project-dormie.jpg";
+import dormieImg from "@/assets/project-dormie.png";
 import marketImg from "@/assets/project-market.jpg";
 import translatorImg from "@/assets/project-translator.jpg";
-import rbtreeImg from "@/assets/project-rbtree.jpg";
-import eulerImg from "@/assets/project-euler.jpg";
+import rbtreeImg from "@/assets/project-rbtree.png";
+import eulerImg from "@/assets/project-euler.png";
 
 const accents = [
   "oklch(0.65 0.13 295)",  // light purple (site primary)
   "oklch(0.72 0.10 230)",  // light blue
-  "oklch(0.42 0.10 260)",  // navy
+  "oklch(0.68 0.12 90)",   // dark yellow
   "oklch(0.52 0.16 305)",  // purple
   "oklch(0.62 0.11 150)",  // green
   "oklch(0.62 0.17 30)",   // orangeish red
-  "oklch(0.68 0.12 90)",   // dark yellow
+  "oklch(0.42 0.10 260)",  // navy
 ];
 
 type Project = {
@@ -38,7 +38,7 @@ const projects: Project[] = [
       "100+ user surveys to refine the concept",
     ],
     image: dormieImg,
-    href: "https://cadenconde.github.io/#project1",
+    href: "https://www.linkedin.com/posts/caden-conde_hackohio13-dormie-socialimpact-activity-7393838918154203136-8A-L?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEKprycBNS-dq4IcVXJF_-eVW4eSD683upI",
   },
   {
     num: "02",
@@ -48,7 +48,7 @@ const projects: Project[] = [
       "VR language-learning app teaching conversational Mandarin Chinese through immersive market scenes; built with an interdisciplinary team.",
     outcomes: ["1st Place — OSU World Language Appathon"],
     image: marketImg,
-    href: "https://cadenconde.github.io/#project2",
+    href: "https://github.com/CadenConde/Taiwanese-Night-Market-Mission",
   },
   {
     num: "03",
@@ -58,17 +58,17 @@ const projects: Project[] = [
       "Real-time sign-language translation device: interprets ASL gestures and outputs spoken or written translations across languages.",
     outcomes: ["2nd Place — MakeOHI/O", "Hardware + software integration"],
     image: translatorImg,
-    href: "https://cadenconde.github.io/#project3",
+    href: "https://www.linkedin.com/posts/caden-conde_makeathon-makeohio25-ohiostateuniversity-activity-7312245346938605568-9yE-?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEKprycBNS-dq4IcVXJF_-eVW4eSD683upI",
   },
   {
     num: "04",
-    title: "Red-Black Tree Implementation",
+    title: "Red-Black Trees",
     stack: ["Python", "Algorithms"],
     blurb:
       "Complete Red-Black Tree with insertion, deletion, and search; comprehensive test coverage and performance analysis.",
     outcomes: ["Full O(log n) guarantees", "Documented benchmarks"],
     image: rbtreeImg,
-    href: "https://cadenconde.github.io/#project4",
+    href: "https://github.com/CadenConde/RedBlackTrees",
   },
   {
     num: "05",
@@ -78,7 +78,7 @@ const projects: Project[] = [
       "100+ computational problems solved with mathematics, algorithms, and optimization. Ongoing since August 2023.",
     outcomes: ["100+ problems solved", "Active since 2023"],
     image: eulerImg,
-    href: "https://cadenconde.github.io/#project5",
+    href: "https://github.com/CadenConde/Euler-202-Solution",
   },
 ];
 

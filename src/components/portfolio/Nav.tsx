@@ -48,12 +48,12 @@ export function Nav() {
         </nav>
         <div className="flex items-center gap-2">
           <a
-            href="/resume.pdf"
+            href="https://docs.google.com/document/d/1YU3iysqTgPJ3qgT3NMbzWNonieac5JJuT4Zuy6LA7GE/edit?usp=sharing"
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-1.5 rounded-sm border border-border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-primary sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-sm border border-border px-3 py-1.5 font-mono text-[13px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-primary sm:inline-flex"
           >
-            <FileText className="h-3 w-3" /> Résumé
+            <FileText className="h-3 w-3" /> Resume
           </a>
           <ThemeToggle />
         </div>

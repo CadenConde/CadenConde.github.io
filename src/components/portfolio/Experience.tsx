@@ -3,11 +3,11 @@ import { SectionHeader } from "./SectionHeader";
 const accents = [
   "oklch(0.65 0.13 295)",  // light purple (site primary)
   "oklch(0.72 0.10 230)",  // light blue
-  "oklch(0.42 0.10 260)",  // navy
+  "oklch(0.68 0.12 90)",   // dark yellow
   "oklch(0.52 0.16 305)",  // purple
   "oklch(0.62 0.11 150)",  // green
   "oklch(0.62 0.17 30)",   // orangeish red
-  "oklch(0.68 0.12 90)",   // dark yellow
+  "oklch(0.42 0.10 260)",  // navy
 ];
 
 type Item = {
@@ -20,17 +20,6 @@ type Item = {
 
 const items: Item[] = [
   {
-    role: "Senior Director of Operations",
-    org: "OSU Undergraduate Student Government",
-    location: "Columbus, OH",
-    dates: "Apr 2026 — Present",
-    bullets: [
-      "Directs infrastructure for a 300+ member student organization.",
-      "Administers digital platforms (Canvas, website, GroupMe); manages access and troubleshoots issues.",
-      "Leads and coordinates three teams, overseeing project execution and delegation.",
-    ],
-  },
-  {
     role: "IT Intern",
     org: "Life Connection of Ohio",
     location: "Dayton, OH",
@@ -39,6 +28,17 @@ const items: Item[] = [
       "Built and deployed an internal ticketing system, improving IT request efficiency.",
       "Administers Microsoft 365 (Entra ID, Exchange Online, MFA) and manages device lifecycle.",
       "Analyzes department data and documents processes to improve workflows.",
+    ],
+  },
+  {
+    role: "Senior Director of Operations",
+    org: "OSU Undergraduate Student Government",
+    location: "Columbus, OH",
+    dates: "Apr 2026 — Present",
+    bullets: [
+      "Directs infrastructure for a 300+ member student organization.",
+      "Administers digital platforms (Canvas, website, GroupMe); manages access and troubleshoots issues.",
+      "Leads and coordinates three teams, overseeing project execution and delegation.",
     ],
   },
   {

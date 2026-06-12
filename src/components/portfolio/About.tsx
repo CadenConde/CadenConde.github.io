@@ -19,9 +19,9 @@ const specialties = [
 
 const facts = [
   { icon: GraduationCap, label: "GPA", value: "3.82 / 4.0" },
-  { icon: Award, label: "Hackathon Wins", value: "Multiple" },
+  { icon: Award, label: "Building Since", value: "2018" },
   { icon: Languages, label: "Languages", value: "EN · 中文 · ES" },
-  { icon: Cpu, label: "Stack", value: "Java · Py · TS · C++" },
+  { icon: Cpu, label: "Stack", value: "Py · Java · React · C/C++" },
 ];
 
 export function About() {
